@@ -2,11 +2,14 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import DefaultLayout from './Views/_Layout/Default';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+          <DefaultLayout>
+            <App />
+          </DefaultLayout>
   </React.StrictMode>,
   document.getElementById('root')
 );
