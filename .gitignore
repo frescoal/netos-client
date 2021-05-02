@@ -5,6 +5,12 @@
 /.pnp
 .pnp.js
 
+# Environement files
+.env
+
+# Editor file
+.idea/*
+
 # testing
 /coverage
 

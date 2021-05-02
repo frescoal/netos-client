@@ -1,25 +1,37 @@
 import React from 'react';
-import { useTranslation } from 'react-i18next';
 
-import logo from './logo.svg';
 import './App.css';
 import './Translations';
+import { connect } from 'react-redux';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Theme from './Theme';
+import DefaultLayout from './Views/_Layout/Default';
+import Routes from './Navigation/Routes';
 
-function App() {
-  const { t } = useTranslation();
+type Props = {
+  mode: 'string';
+};
+
+function App({ mode }: Props) {
+  const theme = createMuiTheme(Theme(mode));
   return (
-    <div>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          {t('welcome')}
-        </a>
-      </header>
-    </div>
+    <Router>
+      <ThemeProvider theme={theme}>
+        <DefaultLayout>
+          <Routes />
+        </DefaultLayout>
+      </ThemeProvider>
+    </Router>
   );
 }
 
-export default App;
+const mapStateToProps = (state: any) => ({
+  mode: state.theme.mode,
+});
+
+const mapDispatchToProps = () => {
+  return {};
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);

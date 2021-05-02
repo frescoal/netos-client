@@ -1,23 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { Provider } from 'react-redux';
 
 import App from './App';
-import Accounts from './Views/Accounts/Collection';
-import DefaultLayout from './Views/_Layout/Default';
 import reportWebVitals from './reportWebVitals';
+import './index.css';
+import store from './Store/store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router>
-      <DefaultLayout>
-        <Switch>
-          <Route path="/" exact component={App} />
-          <Route path="/accounts" component={Accounts} />
-        </Switch>
-      </DefaultLayout>
-    </Router>
+    <Provider store={store}>
+      <App />
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );

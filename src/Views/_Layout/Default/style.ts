@@ -5,6 +5,8 @@ const drawerWidth = 400;
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
+    flexDirection: 'column',
+    minHeight: '100vh',
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -69,6 +71,11 @@ const useStyles = makeStyles((theme) => ({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
+  },
+  footer: {
+    padding: theme.spacing(3, 2),
+    marginTop: 'auto',
+    backgroundColor: theme.palette.type === 'light' ? theme.palette.grey[200] : theme.palette.grey[800],
   },
 }));
 export default useStyles;
