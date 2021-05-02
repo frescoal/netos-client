@@ -1,27 +1,27 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 
 import clsx from 'clsx';
-import { CssBaseline, Drawer, Box, AppBar, Toolbar, List, Typography, Divider, IconButton,Badge,Container, Grid }  from '@material-ui/core';
-import {Switch} from "@material-ui/core";
-import {Menu, ChevronLeft, Notifications, Favorite} from '@material-ui/icons';
+import { CssBaseline, Drawer, Box, AppBar, Toolbar, List, Typography, Divider, IconButton, Badge, Container, Grid, Switch } from '@material-ui/core';
 
-import {createMuiTheme, ThemeProvider} from "@material-ui/core/styles";
+import { Menu, ChevronLeft, Notifications, Favorite } from '@material-ui/icons';
 
-import {mainListItems, secondaryListItems} from '../../../Navigation/SidebarItem';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
+import { mainListItems, secondaryListItems } from '../../../Navigation/SidebarItem';
 import useStyles from './style';
 
 type Props = {
-  children: JSX.Element | JSX.Element[],
+  children: JSX.Element | JSX.Element[];
 };
 
-export default function DefaultLayout({children}: Props) {
+export default function DefaultLayout({ children }: Props) {
   const [open, setOpen] = useState(true);
   const [darkMode, setDarkMode] = useState(false);
-  const palletType = darkMode ? "dark" : "light";
+  const palletType = darkMode ? 'dark' : 'light';
   const darkTheme = createMuiTheme({
     palette: {
       type: palletType,
-    }
+    },
   });
   const styles = useStyles();
 
@@ -31,14 +31,14 @@ export default function DefaultLayout({children}: Props) {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-  const handleThemeChange = (darkMode: boolean) => {
+  const handleThemeChange = () => {
     setDarkMode(!darkMode);
   };
 
   return (
     <ThemeProvider theme={darkTheme}>
       <div className={styles.root}>
-        <CssBaseline/>
+        <CssBaseline />
         <AppBar position="absolute" className={clsx(styles.appBar, open && styles.appBarShift)}>
           <Toolbar className={styles.toolbar}>
             <IconButton
@@ -49,15 +49,16 @@ export default function DefaultLayout({children}: Props) {
               className={clsx(styles.menuButton, {
                 [styles.hide]: open,
               })}
-            ><Menu/>
+            >
+              <Menu />
             </IconButton>
             <Typography component="h1" variant="h6" color="inherit" noWrap className={styles.title}>
               Dashboard
             </Typography>
-            <Switch checked={darkMode} onChange={() => handleThemeChange(darkMode)}/>
+            <Switch checked={darkMode} onChange={handleThemeChange} />
             <IconButton color="inherit">
               <Badge badgeContent={4} color="secondary">
-                <Notifications/>
+                <Notifications />
               </Badge>
             </IconButton>
           </Toolbar>
@@ -77,22 +78,22 @@ export default function DefaultLayout({children}: Props) {
         >
           <div className={styles.toolbar}>
             <IconButton onClick={handleDrawerClose}>
-              <ChevronLeft/>
+              <ChevronLeft />
             </IconButton>
           </div>
-          <Divider/>
+          <Divider />
           <List>{mainListItems}</List>
-          <Divider/>
+          <Divider />
           <List>{secondaryListItems}</List>
         </Drawer>
         <main className={styles.content}>
-          <div className={styles.appBarSpacer}/>
+          <div className={styles.appBarSpacer} />
           <Container maxWidth="lg" className={styles.container}>
             <Grid container spacing={3}>
               {children}
             </Grid>
             <Box pt={4}>
-              <Copyright/>
+              <Copyright />
             </Box>
           </Container>
         </main>
@@ -106,9 +107,7 @@ function Copyright() {
       {new Date().getFullYear()}
       {'Copyright © '}
       Coded with
-      <Favorite/> by
-      Toni & Alain
-      {'.'}
+      <Favorite /> by Toni & Alain .
     </Typography>
   );
 }

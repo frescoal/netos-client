@@ -1,15 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 import App from './App';
+import Accounts from './Views/Accounts/Collection';
 import DefaultLayout from './Views/_Layout/Default';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
   <React.StrictMode>
-          <DefaultLayout>
-            <App />
-          </DefaultLayout>
+    <Router>
+      <DefaultLayout>
+        <Switch>
+          <Route path="/" exact component={App} />
+          <Route path="/accounts" component={Accounts} />
+        </Switch>
+      </DefaultLayout>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
