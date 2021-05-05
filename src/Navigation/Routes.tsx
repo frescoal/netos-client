@@ -8,6 +8,7 @@ export default function Routes() {
     <Switch>
       <Route path="/" exact component={Home} />
       <Route path="/accounts" component={Accounts} />
+      <Route path="*" component={() => <h1>404</h1>} />
     </Switch>
   );
 }

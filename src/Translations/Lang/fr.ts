@@ -1,4 +1,6 @@
 export default {
-  welcome: 'COUCOU',
-  actions: {},
+  welcome: 'Voilà !',
+  actions: {
+    new: 'Ajouter',
+  },
 };

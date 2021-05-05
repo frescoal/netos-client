@@ -3,11 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": [
-    "prettier",
-    "plugin:react/recommended",
-    "airbnb"
-  ],
+  "extends": ["prettier", "plugin:react/recommended", "airbnb"],
   "parser": "@typescript-eslint/parser",
   "globals": {
     "React": true,
@@ -28,47 +24,25 @@
     "ecmaVersion": 12,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "modules-newline",
-    "@typescript-eslint",
-    "prettier"
-  ],
+  "plugins": ["react", "modules-newline", "@typescript-eslint", "prettier"],
   "settings": {
     "import/resolver": {
       "node": {
-        "extensions": [
-          ".js",
-          ".jsx",
-          ".ts",
-          ".tsx"
-        ]
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
       }
     }
   },
   "rules": {
-    "linebreak-style": [
-      2,
-      "unix"
-    ],
-    "quotes": [
-      2,
-      "single"
-    ],
-    "semi": [
-      2,
-      "always"
-    ],
+    "linebreak-style": [2, "unix"],
+    "quotes": [2, "single"],
+    "semi": [2, "always"],
     "react/jsx-one-expression-per-line": 0,
     "react/jsx-filename-extension": 0,
     "import/prefer-default-export": 0,
     "no-console": [
       "error",
       {
-        "allow": [
-          "warn",
-          "error"
-        ]
+        "allow": ["warn", "error"]
       }
     ],
     "react/display-name": 0,
@@ -83,14 +57,13 @@
     "template-curly-spacing": "off",
     "no-underscore-dangle": "off",
     "max-len": "off",
-    "arrow-body-style": [
-      "off"
-    ],
+    "arrow-body-style": ["off"],
     "prettier/prettier": "error",
     "no-use-before-define": "off",
     "import/extensions": "off",
     "comma-dangle": "off",
     "object-curly-newline": "off",
-    "implicit-arrow-linebreak": "off"
+    "implicit-arrow-linebreak": "off",
+    "prefer-promise-reject-errors": "off"
   }
 }
